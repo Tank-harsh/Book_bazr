@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookBazr - Student Book Marketplace</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>BookBazr</h1>
+    <ul class="tabs">
+      <li class="tab active" data-target="home">Home</li>
+      <li class="tab" data-target="sell">Sell Book</li>
+      <li class="tab" data-target="admin" id="admin-tab">Admin Panel</li>
+      <li class="tab" id="login-tab" data-target="login">Login</li>
+      <li class="tab" id="logout-tab" style="display: none;">Logout</li>
+    </ul>
+    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero1" class="hero">
+    <div class="hero-content">
+      <h2>Welcome to BookBazr!</h2>
+      <p>Buy and sell textbooks directly with fellow students</p>
+      <button class="cta-button" onclick="document.querySelector('[data-target=\'sell\']').click()">Sell a Book</button>
+    </div>
+  </section>
+
+  <div id="content">
+    <!-- Home Section -->
+    <section id="home" class="tab-content active">
+      
+      <div class="container">
+        <h2>Available Textbooks</h2>
+        <div class="search-filter-container">
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search textbooks...">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="category-filter">
+            <label for="category">Filter by Subject:</label>
+            <select id="category">
+              <option value="all">All Subjects</option>
+              <option value="math">Mathematics</option>
+              <option value="science">Science</option>
+              <option value="engineering">Engineering</option>
+              <option value="business">Business</option>
+              <option value="humanities">Humanities</option>
+              <option value="arts">Arts</option>
+            </select>
+          </div>
+        </div>
+        <div id="book-list">
+          <ul id="approved-books"></ul>
+          <div id="pagination"></div>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Sell Book Section -->
+    <section id="sell" class="tab-content">
+      <div class="container">
+        <h2>Sell Your Textbook</h2>
+        <form id="book-form">
+          <input type="text" id="book-title" placeholder="Textbook Title" required>
+          <input type="text" id="author" placeholder="Author" required>
+          <input type="number" id="price" placeholder="Price (₹)" min="0" step="10" required>
+          <select id="book-category" required>
+            <option value="math">Mathematics</option>
+            <option value="science">Science</option>
+            <option value="engineering">Engineering</option>
+            <option value="business">Business</option>
+            <option value="humanities">Humanities</option>
+            <option value="arts">Arts</option>
+          </select>
+          <textarea id="description" placeholder="Book Description (Include condition, edition, etc.)" rows="4" required></textarea>
+          <input type="text" id="contact" placeholder="Contact Information (Email/Phone)" required>
+          <button type="submit">Submit Book</button>
+        </form>
+      </div>
+       
+    </section>
+
+    <!-- Admin Panel Section -->
+    <section id="admin" class="tab-content">
+      <div class="container">
+        <h2>Admin Dashboard</h2>
+        <div class="admin-controls">
+          <button id="refresh-requests">Refresh Requests</button>
+        </div>
+        <div id="book-requests"></div>
+      </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="tab-content">
+      <div class="container">
+        <h2>Student Login</h2>
+        <form id="login-form">
+          <input type="text" id="username" placeholder="Student ID/Username" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+      </div>
+    </section>
+
+    <!-- Sign Up Section -->
+    <section id="signup" class="tab-content">
+      <div class="container">
+        <h2>Student Sign Up</h2>
+        <form id="signup-form">
+          <input type="text" id="signup-username" placeholder="Choose Username" required>
+          <input type="email" id="signup-email" placeholder="University Email" required>
+          <input type="password" id="signup-password" placeholder="Password" required>
+          <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 BookBazr - Student Book Marketplace</p>
+    <p>Made with ♥ for students by students</p>
+  </footer>
+
+ <script src="script.js"></script>
+</body>
+</html>
